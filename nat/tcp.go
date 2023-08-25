@@ -38,7 +38,7 @@ func (t *TCP) Accept() (net.Conn, error) {
 	sys, err := c.SyscallConn()
 	if err == nil {
 		_ = sys.Control(func(fd uintptr) {
-			_ = syscall.SetsockoptInt(int(fd), syscall.SOL_SOCKET, syscall.SO_NO_CHECK, 1)
+			_ = syscall.SetsockoptInt(int(fd), syscall.SOL_SOCKET, 11, 1)
 		})
 	}
 
